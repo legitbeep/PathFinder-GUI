@@ -23,7 +23,7 @@ To make your own local copy of the repository you would like to contribute to, l
 We’ll use the `git clone` command along with the URL that points to your fork of the repository.
 
 This URL will be similar to the URL above, except now it will end with `.git.` The URL will look like this:
-https://github.com/your-username/PathFinder-GUI.git
+https://github.com/legitbeep/PathFinder-GUI.git
 
 You can alternatively copy the URL by using the green “Clone or download” button from your repository page that you just forked from the original repository page. Once you click the button, you’ll be able to copy the URL by clicking the binder button next to the URL.
 

@@ -6,6 +6,7 @@ root.title("Pathfinder")
 root.geometry("300x500")
 root.configure(bg="#232528")
 
+
 txt = Label(root,text="Main Menu",font="consolas",height=1,width=9,bg="#232528",fg="white",bd=0,padx=100,pady=20).grid(row=0,column=0)
 
 '''def a_algorithm():

@@ -1,40 +1,76 @@
 from tkinter import *
 
-root = Tk()
-root.title("Pathfinder")
+class Menu():
+	def __init__(self):
+		self.active = 0
+		self.state = False
+		self.randomMaze = False
 
-root.geometry("300x500")
-root.configure(bg="#232528")
+	def toggle(self,id,btn,pbtn):
+		on = "#52C3CC"
+		off = "#0E4448"
+		if not self.state:
+			self.state = True
+			self.active = id
+			btn.configure(bg = off)
+			pbtn.configure(state=NORMAL)
+		elif self.state:
+			if self.active == id :
+				self.state = False
+				self.active = -1
+				btn.configure(bg = on)
+				pbtn.configure(state=DISABLED)
+
+	def closeWindow(self,root):
+		root.destroy()
+
+	def randomToggle(self):
+		self.random = not self.randomMaze
+
+	def createMenu(self):
+		on = "#52C3CC"
+		off = "#0E4448"
+		root = Tk()
+		root.title("Pathfinder")
+
+		root.geometry("300x500")
+		root.configure(bg="#232528")
 
 
-txt = Label(root,text="Main Menu",font="consolas",height=1,width=9,bg="#232528",fg="white",bd=0,padx=100,pady=20).grid(row=0,column=0)
+		txt = Label(root,text="Main Menu",font="consolas",height=1,width=9,bg="#232528",fg="white",bd=0,padx=100,pady=20).grid(row=0,column=0)
 
-'''def a_algorithm():
-    a_algo=Toplevel(root)
-    a_algo.title("Pathfinder->A* Algorithm")
-    a_algo.geometry("200x200")
+		btn1 = Button(root)
+		btn2 = Button(root)
+		btn3 = Button(root)
+		btn4 = Button(root)		
+		pbtn = Button(root,text="PROCEED",width=44,pady=10,bg="#64EA4B",fg="black",activebackground="#319E1D",state=DISABLED,command = lambda:self.closeWindow(root))
 
-    # A Label widget to show in toplevel
-    label= Label(a_algo,
-          text ="This is a new window").pack()
-    label.pack()
-'''
+		btns = []
 
+		for i in range(1,5):
+			btns.append(i)
 
-btn1 = Button(root,text="A* Algorithm",width=44,pady=10,bg="#52C3CC",fg="black",activebackground="#0E4448").place(x=0,y=100)
-btn2 = Button(root,text="Djikstra's Algorithm",width=44,pady=10,bg="#52C3CC",fg="black",activebackground="#0E4448").place(x=0,y=143)
-btn3 = Button(root,text="Depth first search",width=44,pady=10,bg="#52C3CC",fg="black",activebackground="#0E4448").place(x=0,y=186)
-btn4 = Button(root,text="Breadth first search",width=44,pady=10,bg="#52C3CC",fg="black",activebackground="#0E4448").place(x=0,y=229)
-btn5 = Button(root,text="Help",width=20,pady=10,bg="#E9AD80",fg="black").place(x=0,y=450)
-btn6 = Button(root,text="EXIT",width=20,pady=10,bg="#E9AD80",fg="black",command=quit).place(x=160,y=450)
+		btn1.configure(text="A* Algorithm",width=44,pady=10,bg=on,fg="black",activebackground=off,command=lambda: self.toggle(btns[0],btn1,pbtn))
+		btn1.place(x=0,y=100)
+		btn2.configure(text="Djikstra's Algorithm",width=44,pady=10,bg=on,fg="black",activebackground=off,command=lambda: self.toggle(btns[1],btn2,pbtn))
+		btn2.place(x=0,y=143)
+		btn3.configure(text="Depth first search",width=44,pady=10,bg=on,fg="black",activebackground=off,command=lambda: self.toggle(btns[2],btn3,pbtn))
+		btn3.place(x=0,y=186)
+		btn4.configure(text="Breadth first search",width=44,pady=10,bg=on,fg="black",activebackground=off,command=lambda: self.toggle(btns[3],btn4,pbtn))
+		btn4.place(x=0,y=229)
+		
+		random = Checkbutton(root,text="Random path",bg="#232528",fg="black",activebackground="#232528",font=("consolas",12),command = self.randomToggle)
+		random.place(x=0,y=280)
 
+		pbtn.place(x=0,y=350)
 
+		btn5 = Button(root,text="Help",width=20,pady=10,bg="#E9AD80",fg="black",command=lambda : self.help(root))
+		btn5.place(x=0,y=450)
+		btn6 = Button(root,text="EXIT",width=20,pady=10,bg="#E9AD80",fg="black",command=quit)
+		btn6.place(x=160,y=450)
 
-
-
-
-root.resizable(False,False)
-mainloop()
+		root.resizable(False,False)
+		root.mainloop()
 
 
 

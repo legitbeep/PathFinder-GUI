@@ -2,11 +2,10 @@ import pygame
 from random import choice
 from random import randint
 
-on = (255, 255, 255)
-off = 40, 55, 71
+off = (255, 255, 255)
+on = 40, 55, 71
 
 cellstatus = lambda x: on if x else off
-
 
 class Cell(pygame.sprite.Sprite):
     w, h = 16, 16
@@ -27,7 +26,6 @@ class Cell(pygame.sprite.Sprite):
     def draw(self, screen):
         screen.blit(self.image, self.rect)
         pygame.draw.rect(screen, (93, 173, 226), self.rect, 1)
-        
 
     def changeStatus(self):
         self.image.fill(cellstatus(self.status))

@@ -35,7 +35,7 @@ def sometest(screen):
     drawAll(screen)
 
 
-def main():
+def Maze():
     pygame.init()
     scr_inf = pygame.display.Info()
     os.environ['SDL_VIDEO_WINDOW_POS'] = '{}, {}'.format(scr_inf.current_w // 2 - WINSIZE[0] // 2,
@@ -80,4 +80,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    Maze()

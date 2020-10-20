@@ -25,7 +25,10 @@ class Menu():
 		root.destroy()
 
 	def randomToggle(self):
-		self.random = not self.randomMaze
+		if self.randomMaze:
+			self.randomMaze = False
+		else :
+			self.randomMaze = True
 
 	def createMenu(self):
 		on = "#52C3CC"
@@ -64,11 +67,11 @@ class Menu():
 
 		pbtn.place(x=0,y=350)
 
-		btn5 = Button(root,text="Help",width=20,pady=10,bg="#E9AD80",fg="black",command=lambda : self.help(root))
+		btn5 = Button(root,text="Help",width=20,pady=10,bg="#E9AD80",fg="black")
 		btn5.place(x=0,y=450)
 		btn6 = Button(root,text="EXIT",width=20,pady=10,bg="#E9AD80",fg="black",command=quit)
 		btn6.place(x=160,y=450)
-
+		root.protocol("WM_DELETE_WINDOW",quit)
 		root.resizable(False,False)
 		root.mainloop()
 

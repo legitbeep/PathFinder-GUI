@@ -24,8 +24,28 @@ class Menu():
 	def closeWindow(self,root):
 		root.destroy()
 
+	def help(self,root):
+
+
+	    a=Tk()
+
+
+	    b=Label(a,text="Help",font="consolas",height=1,width=9,bg="#232528",fg="white",bd=0,padx=100,pady=20).grid(row=0,column=2)
+
+
+	    root.withdraw()
+	    def back():
+	    	root.deiconify()
+	    	a.destroy()
+	    back=Button(a,text="<<",bg="#232528",fg="white",bd=0,command=back).grid(row=0,column=0)
+
+
+
+
+
 	def randomToggle(self):
 		self.random = not self.randomMaze
+
 
 	def createMenu(self):
 		on = "#52C3CC"
@@ -38,11 +58,12 @@ class Menu():
 
 
 		txt = Label(root,text="Main Menu",font="consolas",height=1,width=9,bg="#232528",fg="white",bd=0,padx=100,pady=20).grid(row=0,column=0)
+		#frame=LabelFrame(root,text="i mak jdjhakdsaihnhaskjhask",padx=20,pady=20,).grid(row=1,column=1,columnspan=5)
 
 		btn1 = Button(root)
 		btn2 = Button(root)
 		btn3 = Button(root)
-		btn4 = Button(root)		
+		btn4 = Button(root)
 		pbtn = Button(root,text="PROCEED",width=44,pady=10,bg="#64EA4B",fg="black",activebackground="#319E1D",state=DISABLED,command = lambda:self.closeWindow(root))
 
 		btns = []
@@ -58,7 +79,7 @@ class Menu():
 		btn3.place(x=0,y=186)
 		btn4.configure(text="Breadth first search",width=44,pady=10,bg=on,fg="black",activebackground=off,command=lambda: self.toggle(btns[3],btn4,pbtn))
 		btn4.place(x=0,y=229)
-		
+
 		random = Checkbutton(root,text="Random path",bg="#232528",fg="black",activebackground="#232528",font=("consolas",12),command = self.randomToggle)
 		random.place(x=0,y=280)
 

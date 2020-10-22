@@ -8,7 +8,7 @@ on = 40, 55, 71
 cellstatus = lambda x: on if x else off
 
 class Cell(pygame.sprite.Sprite):
-    w, h = 16, 16
+    w, h = 15, 15
     status = 0
     reset = True
 

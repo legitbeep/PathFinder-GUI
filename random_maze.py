@@ -1,11 +1,16 @@
 import random
 
-SIZE = 10
-ON = '.'
-OFF = '#'
-START = 'S'
-END = 'E'
 class RandomMaze:
+
+	def __init__(self,SIZE):
+		self.SIZE = SIZE
+		self.ON = '.'
+		self.OFF = '#'
+		self.START = 'S'
+		self.END = 'E'
+		self.start = None
+		self.end = None
+
 	def check_neighbours( self, maze , cur ):
 		x,y = cur
 
@@ -17,7 +22,7 @@ class RandomMaze:
 		valid = []
 		for coord in coords :
 			i , j = coord
-			if i < 0 or j < 0 or i >= SIZE or j >= SIZE or maze[i][j] == ON :
+			if i < 0 or j < 0 or i >= self.SIZE or j >= self.SIZE or maze[i][j] == self.ON :
 				pass
 			else :
 				valid.append(coord)
@@ -27,11 +32,11 @@ class RandomMaze:
 
 	def randomMaze(self):
 	
-		maze = [ [OFF for _ in range(SIZE)] for _ in range(SIZE) ]
-		x,y = random.randint(0,SIZE-1),random.randint(0,SIZE-1)
+		maze = [ [self.OFF for _ in range(self.SIZE)] for _ in range(self.SIZE) ]
+		x,y = random.randint(0,self.SIZE-1),random.randint(0,self.SIZE-1)
 		startx = x 
 		starty = y
-		maze[x][y] = START
+		maze[x][y] = self.START
 		stack = [ (x,y) ]
 		
 		maxDist,endx,endy = 0,0,0
@@ -49,19 +54,20 @@ class RandomMaze:
 					maxDist = curDist
 					endx = i
 					endy = j
-				maze[i][j] = ON
+				maze[i][j] = self.ON
 				if i == x :
 					if j == y+2 :
-						maze[x][y+1] = ON
+						maze[x][y+1] = self.ON
 					else :
-						maze[x][y-1] = ON
+						maze[x][y-1] = self.ON
 				elif j == y :
 					if i == x+2:
-						maze[x+1][y] = ON
+						maze[x+1][y] = self.ON
 					else :
-						maze[x-1][y] = ON
+						maze[x-1][y] = self.ON
 				stack.append(valid[choose])
-		maze[startx][starty] = START
-		maze[endx][endy] = END
-		print(maxDist)
+		maze[startx][starty] = self.START
+		maze[endx][endy] = self.END
+		self.start = (startx,starty)
+		self.end = (endx,endy)
 		return maze

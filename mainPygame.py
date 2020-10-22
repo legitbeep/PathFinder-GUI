@@ -3,7 +3,7 @@ from maze import *
 import pygame
 from pygame.locals import *
 
-scale = 41
+scale = 50
 WINSIZE = (Cell.w * scale, Cell.h * scale)
 graph = []
 
@@ -41,7 +41,7 @@ def Maze():
     os.environ['SDL_VIDEO_WINDOW_POS'] = '{}, {}'.format(scr_inf.current_w // 2 - WINSIZE[0] // 2,
                                                          scr_inf.current_h // 2 - WINSIZE[1] // 2)
     screen = pygame.display.set_mode(WINSIZE)
-    pygame.display.set_caption('harsh shit')
+    pygame.display.set_caption('PathFinder-GUI')
     screen.fill((0, 0, 0))
 
     clock = pygame.time.Clock()

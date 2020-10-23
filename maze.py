@@ -3,7 +3,9 @@ from random import choice
 from random import randint
 
 off = (255, 255, 255)
-on = 40, 55, 71
+on =  "#223749"
+start = "#4EFF00"
+end = "#FF395D"
 
 cellstatus = lambda x: on if x else off
 
@@ -30,6 +32,10 @@ class Cell(pygame.sprite.Sprite):
     def changeStatus(self):
         self.image.fill(cellstatus(self.status))
 
+
+    def changeColor(self, color):
+        self.image.fill(color)
+        
     def toggleOn(self):
         if self.reset:
             self.status = True

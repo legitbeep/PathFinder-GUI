@@ -6,12 +6,16 @@ from pygame.locals import *
 scale = 50
 WINSIZE = (Cell.w * scale, Cell.h * scale)
 graph = []
-
+fixpos = 0
+pos = [0, 0]
 
 def cleanGraph():
     for i in range(len(graph)):
         for j in range(len(graph[i])):
-            graph[i][j] = graph[i][j].status
+            if type(graph[i][j].status) == str:
+                graph[i][j] = graph[i][j].status
+            else:
+                graph[i][j] = "#" if graph[i][j].status else "."
     
 def resetAllCell():
     for i in graph:
@@ -47,12 +51,12 @@ def Maze():
     screen = pygame.display.set_mode(WINSIZE)
     pygame.display.set_caption('PathFinder-GUI')
     screen.fill((0, 0, 0))
-
     clock = pygame.time.Clock()
     
 
     sometest(screen)
-
+    fixpos = 0
+    pos = [0 , 0]
     done = 0
     while not done:
         for e in pygame.event.get():
@@ -60,8 +64,23 @@ def Maze():
             xcor, ycor = pygame.mouse.get_pos()
             xcor, ycor = xcor//Cell.w, ycor//Cell.h
             
-            if pygame.mouse.get_pressed()[0]:    
-                graph[xcor][ycor].toggleOn()
+            if pygame.mouse.get_pressed()[0]: 
+                if  fixpos == 0:
+                    fixpos += 1
+                    pos[0] = (xcor, ycor)
+                    print(start, xcor, ycor, fixpos)
+                    graph[xcor][ycor].status = "S"
+                    graph[xcor][ycor].changeColor(start)
+
+                elif fixpos == 1 and (xcor, ycor) not in pos:
+                    pos[1] = (xcor, ycor)
+                    print(end, xcor, ycor)
+                    fixpos += 1
+                    graph[xcor][ycor].status = "E"
+                    graph[xcor][ycor].changeColor(end)
+
+                elif (xcor, ycor) not in pos:
+                    graph[xcor][ycor].toggleOn()
                 drawAll(screen)
 
             elif pygame.mouse.get_pressed()[2]:    
@@ -72,6 +91,8 @@ def Maze():
                 for i in graph:
                     for j in i:
                         j.toggleOff()
+                fixpos = 0
+                pos = [0 , 0]
                 drawAll(screen)
 
             elif e.type == pygame.MOUSEBUTTONUP:

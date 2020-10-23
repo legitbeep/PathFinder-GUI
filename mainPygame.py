@@ -83,7 +83,7 @@ def Maze():
                     graph[xcor][ycor].toggleOn()
                 drawAll(screen)
 
-            elif pygame.mouse.get_pressed()[2]:    
+            elif pygame.mouse.get_pressed()[2] and (xcor, ycor) not in pos:    
                 graph[xcor][ycor].toggleOff()
                 drawAll(screen)
 
@@ -100,7 +100,8 @@ def Maze():
 
             elif e.type == 768:
                 cleanGraph()
-                print(graph)
+                pygame.display.flip()
+                pygame.quit()
                 return graph
 
             elif e.type == QUIT or (e.type == KEYUP and e.key == K_ESCAPE):

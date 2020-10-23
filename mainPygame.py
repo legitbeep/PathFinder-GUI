@@ -8,7 +8,11 @@ WINSIZE = (Cell.w * scale, Cell.h * scale)
 graph = []
 
 
-
+def cleanGraph():
+    for i in range(len(graph)):
+        for j in range(len(graph[i])):
+            graph[i][j] = graph[i][j].status
+    
 def resetAllCell():
     for i in graph:
         for j in i:
@@ -54,7 +58,8 @@ def Maze():
         for e in pygame.event.get():
             
             xcor, ycor = pygame.mouse.get_pos()
-            xcor, ycor = xcor//16, ycor//16
+            xcor, ycor = xcor//Cell.w, ycor//Cell.h
+            
             if pygame.mouse.get_pressed()[0]:    
                 graph[xcor][ycor].toggleOn()
                 drawAll(screen)
@@ -71,6 +76,11 @@ def Maze():
 
             elif e.type == pygame.MOUSEBUTTONUP:
                 resetAllCell()
+
+            elif e.type == 768:
+                cleanGraph()
+                print(graph)
+                return graph
 
             elif e.type == QUIT or (e.type == KEYUP and e.key == K_ESCAPE):
                 done = 1

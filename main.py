@@ -2,9 +2,8 @@ from menu import *
 from mainPygame import *
 from random_maze import *
 from tilesHandler import *
+from tinkerclass import *
 
-SIZE = 50
-TSIZE = 15
 
 algo = { 1 : "A*",
 		 2 : "Djikstra",
@@ -21,11 +20,5 @@ else:
 	randomMazeObj = RandomMaze(SIZE)
 	maze = randomMazeObj.randomMaze()
 
-root = Tk()
-
-c = Canvas(root,width = SIZE*TSIZE, height= SIZE*TSIZE,bd=0,highlightthickness=0)
-obj = Display(c,SIZE,TSIZE,maze)
-c.pack()
-
-root.mainloop()
-
+print("finish")
+callthis(maze)

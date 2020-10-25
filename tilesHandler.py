@@ -100,3 +100,24 @@ class Display():
 		self.canvas.create_rectangle(tile.x1, tile.y1, tile.x2, tile.y2, fill = color , outline=outline)
 		self.canvas.update()
 
+	def redrawTile(self,tile,color,outline):
+		if tile != self.start and tile != self.end :
+			self.canvas.create_rectangle(tile.x1, tile.y1, tile.x2,tile.y2,fill=color,outline=outline)
+			self.canvas.update()
+
+	def constructPath(self,cameFrom,start,end):
+		cur = end
+		path = [cur]
+		while cur != start :
+			cur = cameFrom[cur]
+			path.append(cur)
+		path.append(start)
+	#	path.reverse()
+		return path
+
+	def distance(tile1,til2):
+		x1,y1 = (tile1.x,tile1.y)
+		x2,y2 = (tile2.x,tile.y)
+		return abs(x1-x2) + abs(y1-y2)
+
+

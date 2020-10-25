@@ -2,13 +2,7 @@ from menu import *
 from mainPygame import *
 from random_maze import *
 from tilesHandler import *
-from tinkerclass import *
-
-
-algo = { 1 : "A*",
-		 2 : "Djikstra",
-		 3 : "DFS",
-		 4 : "BFS" }
+from solve import *
 
 obj = Menu()
 obj.createMenu()
@@ -21,4 +15,4 @@ else:
 	maze = randomMazeObj.randomMaze()
 
 print("finish")
-callthis(maze)
+solveMaze(maze,obj.active)

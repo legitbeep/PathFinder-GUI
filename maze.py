@@ -3,9 +3,9 @@ from random import choice
 from random import randint
 
 off = (255, 255, 255)
-on =  "#223749"
-start = "#4EFF00"
-end = "#FF395D"
+on =  (34,55,73)
+start = ( 242, 208, 21 )
+end = ( 255,57,93)
 
 cellstatus = lambda x: on if x else off
 

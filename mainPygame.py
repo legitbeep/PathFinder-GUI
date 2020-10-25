@@ -63,7 +63,6 @@ def Maze():
             
             xcor, ycor = pygame.mouse.get_pos()
             xcor, ycor = xcor//Cell.w, ycor//Cell.h
-            
             if pygame.mouse.get_pressed()[0]: 
                 if  fixpos == 0:
                     fixpos += 1
@@ -98,7 +97,7 @@ def Maze():
             elif e.type == pygame.MOUSEBUTTONUP:
                 resetAllCell()
 
-            elif e.type == 768:
+            elif e.type == KEYDOWN and e.key == K_RETURN :
                 cleanGraph()
                 pygame.display.flip()
                 pygame.quit()

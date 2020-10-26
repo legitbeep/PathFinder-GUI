@@ -3,9 +3,13 @@ from random import choice
 from random import randint
 
 off = (255, 255, 255)
+<<<<<<< HEAD
 on =  (34,55,73)
 start = ( 242, 208, 21 )
 end = ( 255,57,93)
+=======
+
+
 
 cellstatus = lambda x: on if x else off
 

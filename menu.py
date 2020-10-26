@@ -30,7 +30,16 @@ class Menu():
 	    a=Tk()
 
 
-	    b=Label(a,text="Help",font="consolas",height=1,width=9,bg="#232528",fg="white",bd=0,padx=100,pady=20).grid(row=0,column=2)
+	    b=Label(a,text="Help",font=("consolas",16),height=1,width=9,bg="#232528",fg="white",bd=0,padx=100,pady=20).grid(row=0,column=2)
+
+	    head1 = Label(a,text="Main Menu :",font=("consolas",14),bg="#232528",fg="white").grid(row=3,column=1)
+	    txt1 = Label(a,text="Here you have to select one algorithm to solve the maze and check the random maze if you wish not to make on yourself and press PROCEED.",font=("consolas",12),bg="#232528",fg="white").grid(row=4,column=0)
+
+	    head2 = Label(a,text="Random Maze :",font=("consolas",14),bg="#232528",fg="white").grid(row=8,column=1)
+	    txt2 = Label(a,text="If you selected random maze, then the program will display a random maze with start(orange) and end(pink) and start solving the maze instantly just wait and enjoy!",font=("consolas",12),bg="#232528",fg="white").grid(row=9,column=0)
+
+	    head3 = Label(a,text="Make Maze :",font=("consolas",14),bg="#232528",fg="white").grid(row=11,column=1)
+	    txt3 = Label(a,text="If you didn't select random maze, then the program will ask you to make a maze where the first left click will make start (orange) and second will make end(pink) points and the rest left click will make walls , you can erase walls with right click but not start or end.",font=("consolas",12),bg="#232528",fg="white").grid(row=12,column=0)
 
 
 	    root.withdraw()
@@ -61,7 +70,6 @@ class Menu():
 
 
 		txt = Label(root,text="Main Menu",font="consolas",height=1,width=9,bg="#232528",fg="white",bd=0,padx=100,pady=20).grid(row=0,column=0)
-		#frame=LabelFrame(root,text="i mak jdjhakdsaihnhaskjhask",padx=20,pady=20,).grid(row=1,column=1,columnspan=5)
 
 		btn1 = Button(root)
 		btn2 = Button(root)
@@ -88,7 +96,7 @@ class Menu():
 
 		pbtn.place(x=0,y=350)
 
-		btn5 = Button(root,text="Help",width=20,pady=10,bg="#E9AD80",fg="black")
+		btn5 = Button(root,text="Help",width=20,pady=10,bg="#E9AD80",fg="black",command=lambda : self.help(root))
 		btn5.place(x=0,y=450)
 		btn6 = Button(root,text="EXIT",width=20,pady=10,bg="#E9AD80",fg="black",command=quit)
 		btn6.place(x=160,y=450)

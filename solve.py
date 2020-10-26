@@ -81,6 +81,10 @@ def runAlgo(choice,Dobj):
 	
 	return cost
 
+def exitMenu():
+	# to be made by joshi
+	pass
+
 def solveMaze(maze,choice):
 
 	root = Tk()
@@ -93,3 +97,5 @@ def solveMaze(maze,choice):
 
 	root.resizable(False,False)
 	root.mainloop()
+
+	exitMenu()

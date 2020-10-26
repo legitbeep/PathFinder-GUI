@@ -116,7 +116,5 @@ class algo:
                     front.append(next_tile)
                     came_from[next_tile] = current
 
-        for i in came_from:
-            print(i)
         return came_from, success, has_been_next      
 

@@ -14,5 +14,4 @@ else:
 	randomMazeObj = RandomMaze(SIZE)
 	maze = randomMazeObj.randomMaze()
 
-print("finish")
 solveMaze(maze,obj.active)

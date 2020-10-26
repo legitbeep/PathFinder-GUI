@@ -1,5 +1,5 @@
 from queues import *
-
+from random import shuffle
 class algo:
 
     def bfs(self,start,end):
@@ -95,5 +95,28 @@ class algo:
 
     def dfs(self,start,end):
 
-        pass       
+        front = []
+        front.append(start)
+        came_from = {start: None}
+        success = False
+        has_been_next = []
+
+        while not len(front)==0:
+            current = front.pop()
+            current.visit()
+            if current == end:
+                success = True
+                break
+
+
+            for next_tile in current.neighbours:
+                if next_tile not in has_been_next:
+                    has_been_next.append(next_tile)
+                if next_tile not in came_from:
+                    front.append(next_tile)
+                    came_from[next_tile] = current
+
+        for i in came_from:
+            print(i)
+        return came_from, success, has_been_next      
 

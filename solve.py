@@ -37,7 +37,7 @@ def runAlgo(choice,Dobj):
 		print("Total cost ",cost)
 
 	elif ALGO[choice] == "DFS Algorithm":
-		cf,cc,done = algorithm.dfs(Dobj.start,Dobj.end)
+		cf,done,bn = algorithm.dfs(Dobj.start,Dobj.end)
 		if done :
 			path = Dobj.constructPath(cf,Dobj.start,Dobj.end)
 		else :
@@ -45,7 +45,7 @@ def runAlgo(choice,Dobj):
 		cost = 0
 		for tile in path:
 			cost += tile.weight
-		return cost
+		print("Total cost ",cost)
 
 	elif ALGO[choice] == "BFS Algorithm":
 		cf,done,bn = algorithm.bfs(Dobj.start,Dobj.end)

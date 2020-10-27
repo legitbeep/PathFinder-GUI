@@ -28,25 +28,38 @@ class Menu():
 
 
 	    a=Tk()
+	    a.geometry("300x500")
+	    a.configure(bg="#232528")
 
 
-	    b=Label(a,text="Help",font=("consolas",16),height=1,width=9,bg="#232528",fg="white",bd=0,padx=100,pady=20).grid(row=0,column=2)
+	    b=Label(a,text="Help",font=("consolas bold",16),height=1,width=9,bg="#232528",fg="white",bd=0,padx=5,pady=5).place(x=100,y=0)
 
-	    head1 = Label(a,text="Main Menu :",font=("consolas",14),bg="#232528",fg="white").grid(row=3,column=1)
-	    txt1 = Label(a,text="Here you have to select one algorithm to solve the maze and check the random maze if you wish not to make on yourself and press PROCEED.",font=("consolas",12),bg="#232528",fg="white").grid(row=4,column=0)
+	    head1 = Label(a,text="Main Menu :",font=("consolas",14),bg="#232528",fg="white").place(x=100,y=30)
+	    txt1 = Text(a,font=("consolas",12),bg="#232528",fg="white",height=3,width=33)
+	    txt1.insert(END, "Here you have to select one \nalgorithm to solve the maze and  check the random maze if you wish not to make on yourself and press PROCEED.")
+	    txt1.place(x=0,y=60)
 
-	    head2 = Label(a,text="Random Maze :",font=("consolas",14),bg="#232528",fg="white").grid(row=8,column=1)
-	    txt2 = Label(a,text="If you selected random maze, then the program will display a random maze with start(orange) and end(pink) and start solving the maze instantly just wait and enjoy!",font=("consolas",12),bg="#232528",fg="white").grid(row=9,column=0)
+	    txt1.configure(state=DISABLED)
 
-	    head3 = Label(a,text="Make Maze :",font=("consolas",14),bg="#232528",fg="white").grid(row=11,column=1)
-	    txt3 = Label(a,text="If you didn't select random maze, then the program will ask you to make a maze where the first left click will make start (orange) and second will make end(pink) points and the rest left click will make walls , you can erase walls with right click but not start or end.",font=("consolas",12),bg="#232528",fg="white").grid(row=12,column=0)
+	    head2 = Label(a,text="Random Maze :",font=("consolas",14),bg="#232528",fg="white").place(x=97,y=130)
+	    txt2 = Text(a,font=("consolas",12),bg="#232528",fg="white",height=5,width=33)
+	    txt2.insert(END,"If you selected random maze, then\nthe program will display a random maze withstart (orange) and end (pink) and start solving the maze instantly just wait and enjoy!")
+	    txt2.place(x=0,y=160)
+	    txt2.configure(state=DISABLED)
+
+	    head3 = Label(a,text="Make Maze :",font=("consolas",14),bg="#232528",fg="white").place(x=97,y=263)
+	    txt3 = Text(a,font=("consolas",12),bg="#232528",fg="white",height=9,width=33)
+	    txt3.insert(END,"If you didn't select random maze,\nthen the program will ask you to\nmake a maze where the first left\nclick will make start (orange)\nand second will make end (pink) \npoints and the rest left click \nwill make walls , you can erase  walls with right click but not \nstart or end.")
+	    txt3.place(x=0,y=300)
+
+	    txt3.configure(state=DISABLED)
 
 
 	    root.withdraw()
 	    def back():
 	    	root.deiconify()
 	    	a.destroy()
-	    back=Button(a,text="<<",bg="#232528",fg="white",bd=0,command=back).grid(row=0,column=0)
+	    back=Button(a,text="<<",width=5,pady=5,bg="#232528",fg="white",command=back).place(x=0,y=0)
 
 
 
@@ -69,7 +82,7 @@ class Menu():
 		root.configure(bg="#232528")
 
 
-		txt = Label(root,text="Main Menu",font="consolas",height=1,width=9,bg="#232528",fg="white",bd=0,padx=100,pady=20).grid(row=0,column=0)
+		txt = Label(root,text="Main Menu",font=("consolas bold",16),height=1,width=9,bg="#232528",fg="white",bd=0,padx=100,pady=20).grid(row=0,column=0)
 
 		btn1 = Button(root)
 		btn2 = Button(root)

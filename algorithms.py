@@ -1,5 +1,7 @@
 from queues import *
 from random import shuffle
+from multiprocessing import Process
+
 class algo:
 
     def bfs(self,start,end):
@@ -100,8 +102,8 @@ class algo:
         came_from = {start: None}
         success = False
         has_been_next = []
-
-        while not len(front)==0:
+    
+        while not len(front)==0 and not success:
             current = front.pop()
             current.visit()
             if current == end:
@@ -115,6 +117,6 @@ class algo:
                 if next_tile not in came_from:
                     front.append(next_tile)
                     came_from[next_tile] = current
-
+            
         return came_from, success, has_been_next      
 

@@ -3,6 +3,11 @@ from menu import *
 from tilesHandler import *
 from algorithms import *
 
+import multiprocessing
+multiprocessing.set_start_method('spawn')
+from multiprocessing import Process
+
+
 SIZE = 50
 TSIZE = 15
 recolor = "#00FF82"
@@ -62,6 +67,7 @@ def runAlgo(choice,Dobj):
 		print("Total cost ",cost)
 
 	if done :
+		processes =  []
 		for tile,cameFrom in cf.items():
 			if cameFrom is None:
 				pass
@@ -71,15 +77,54 @@ def runAlgo(choice,Dobj):
 				if tile.val != 'S' and tile.val != 'E' and not tile.visited:
 					pass
 				else:
-					Dobj.canvas.after(25,Dobj.redrawTile(tile,tile.visitedColor,border))
+					processes.append(Process(target = Dobj.canvas.after, args=(25,Dobj.redrawTile(tile,tile.visitedColor,border),)))
+
+		for i in processes:
+			try:
+				i.start()
+			except:
+				break
+			try:
+				i.join()
+			except:
+				break
+
+
+		processes = []
 		for tile in bn : 
 			if tile.val != 'S' and tile.val != 'E' and not tile.visited :
+<<<<<<< HEAD
 				Dobj.canvas.after(25,Dobj.redrawTile(tile,"#00CFFF",border))
 			elif tile.val == 'E':
 				break;							
 
+=======
+				processes.append(Process(target = Dobj.canvas.after, args=(25,Dobj.redrawTile(tile,"#00CFFF",border),)))
+		for i in processes:
+			try:
+				i.start()
+			except:
+				break
+			try:
+				i.join()
+			except:
+				break
+
+		processes = [] 
+>>>>>>> 699ab8d9f117b0afbd01ce018daaeb9d4992a3c8
 		for tile in path:
-			Dobj.canvas.after(25,Dobj.redrawTile(tile,recolor,border))
+			processes.append(Process(target = Dobj.canvas.after, args=(25,Dobj.redrawTile(tile,recolor,border),)))
+
+		for i in processes:
+			try:
+				i.start()
+			except:
+				break
+			try:
+				i.join()
+			except:
+				break
+
 	
 	return cost
 

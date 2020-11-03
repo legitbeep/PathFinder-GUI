@@ -90,10 +90,14 @@ class Display():
 				tile2.neighbours.append(tile1)
 
 	def displayMaze(self):
+		
+
 		for r in range(self.size):
 			for c in range(self.size):
 				t = self.tiles[r,c]
 				self.displayTile(t,t.color,"#38B8BB")
+
+
 	
 	def displayTile(self,tile,color,outline):
 		self.canvas.create_rectangle(tile.x1, tile.y1, tile.x2, tile.y2, fill = color , outline=outline)

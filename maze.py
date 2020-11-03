@@ -7,9 +7,6 @@ on =  (34,55,73)
 start = ( 242, 208, 21 )
 end = ( 255,57,93)
 
-
-
-
 cellstatus = lambda x: on if x else off
 
 class Cell(pygame.sprite.Sprite):

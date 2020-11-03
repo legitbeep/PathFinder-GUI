@@ -22,10 +22,6 @@ def resetAllCell():
         for j in i:
             j.reset = True
 
-def draw_maze(screen):
-    maze = Maze(WINSIZE)
-    maze.generate(screen, True)
-
 def drawAll(screen):
     for i in graph:
         for j in i:

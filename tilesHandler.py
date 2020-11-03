@@ -30,7 +30,6 @@ class Display():
 
 				self.tiles[r,c] = t
 				self.listTiles.append(t)
-
 	def fillNeighbours(self):
 
 		for coord , tile in self.tiles.items():

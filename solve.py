@@ -74,19 +74,16 @@ def runAlgo(choice,Dobj):
 					Dobj.canvas.after(25,Dobj.redrawTile(tile,tile.visitedColor,border))
 		for tile in bn : 
 			if tile.val != 'S' and tile.val != 'E' and not tile.visited :
-				Dobj.canvas.after(25,Dobj.redrawTile(tile,"#00CFFF",border))							
+				Dobj.canvas.after(25,Dobj.redrawTile(tile,"#00CFFF",border))
+			elif tile.val == 'E':
+				break;							
 
 		for tile in path:
 			Dobj.canvas.after(25,Dobj.redrawTile(tile,recolor,border))
 	
 	return cost
 
-def exitMenu():
-	# to be made by joshi
-	pass
-
 def solveMaze(maze,choice):
-
 	root = Tk()
 	root.title(ALGO[choice])
 	c = Canvas(root,width = SIZE*TSIZE, height= SIZE*TSIZE,bd=0,highlightthickness=0)
@@ -97,5 +94,3 @@ def solveMaze(maze,choice):
 
 	root.resizable(False,False)
 	root.mainloop()
-
-	exitMenu()

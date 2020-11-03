@@ -93,12 +93,9 @@ def runAlgo(choice,Dobj):
 		processes = []
 		for tile in bn : 
 			if tile.val != 'S' and tile.val != 'E' and not tile.visited :
-<<<<<<< HEAD
 				Dobj.canvas.after(25,Dobj.redrawTile(tile,"#00CFFF",border))
 			elif tile.val == 'E':
-				break;							
-
-=======
+				break;	
 				processes.append(Process(target = Dobj.canvas.after, args=(25,Dobj.redrawTile(tile,"#00CFFF",border),)))
 		for i in processes:
 			try:
@@ -111,7 +108,6 @@ def runAlgo(choice,Dobj):
 				break
 
 		processes = [] 
->>>>>>> 699ab8d9f117b0afbd01ce018daaeb9d4992a3c8
 		for tile in path:
 			processes.append(Process(target = Dobj.canvas.after, args=(25,Dobj.redrawTile(tile,recolor,border),)))
 

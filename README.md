@@ -8,8 +8,8 @@
 
 ### 1. Clone the repository :
 
-Firstly, you will be required to clone the repository into your local computer and to do that you can run the following command in git bash.
-git clone https://github.com/legitbeep/PathFinder-GUI.git
+Firstly, you will be required to clone the repository into your local computer and to do that you can run the following command in git bash. 
+#### git clone https://github.com/legitbeep/PathFinder-GUI.git 
 
 ### 2. Run main.py :
 

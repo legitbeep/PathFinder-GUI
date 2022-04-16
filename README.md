@@ -1,8 +1,4 @@
 # PathFinder-GUI
-<p>
-
-
-## Instructions :
 
 ### How to Run :
 
